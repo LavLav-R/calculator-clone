@@ -3,18 +3,41 @@ const equal = document.getElementById('js-equal');
 
 let numArray = [];
 let input;
+let currentMethod;
+let answer;
 
 for(const method of methods){
-  method.addEventListener('click', () => console.log(method.value) );
+  method.addEventListener('click', () => {
+    storeInput();
+    currentMethod = method.value;
+  });
 };
 
 function storeInput(){
-  input = Number(document.getElementById('js-input').value);
-  numArray.push(input);
-  input.innerText = ""; //Not working
-  console.log(methods);
+  input = document.getElementById('js-input');
+  numArray.push(input.valueAsNumber);
+  input.value = "";
 };
 
+function solve(){
+  storeInput();
+  switch(currentMethod){
+    case "divide":
+      answer = numArray[0] / numArray[1];
+      break;
+    case "multiply":
+      answer = numArray[0] * numArray[1];
+      break;
+    case "subtract":
+      answer = numArray[0] - numArray[1];
+      break;
+    case "add":
+      answer = numArray[0] + numArray[1];
+      break;
+  };
+  input.value = answer;
+  numArray = [];
+  currentMethod = null;
+};
 
-
-equal.addEventListener('click', storeInput);
+equal.addEventListener('click', solve);
