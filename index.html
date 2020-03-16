@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="./assets/icons/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Calculator Clone</title>
 </head>
@@ -11,32 +13,32 @@
   <section>
     <!-- Row 1 -->
     <div class="input-layout">
-      <input id="js-input" type="number"/>
+      <input id="js-input" type="number" maxlength="9"/>
     </div>
     <!-- Row 2 -->
     <button id="js-clearButton">C</button>
     <button>+/-</button>
-    <button>%</button>
-    <button class="method" value="divide">/</button>
+    <button><i class="fas fa-percentage"></i></button>
+    <button class="method" value="divide"><i class="fas fa-divide"></i></button>
     <!-- Row 3 -->
     <button class="display" value="7">7</button>
     <button class="display" value="8">8</button>
     <button class="display" value="9">9</button>
-    <button class="method" value="multiply">X</button>
+    <button class="method" value="multiply"><i class="fas fa-times"></i></button>
     <!-- Row 4 -->
     <button class="display" value="4">4</button>
     <button class="display" value="5">5</button>
     <button class="display" value="6">6</button>
-    <button class="method" value="subtract">-</button>
+    <button class="method" value="subtract"><i class="fas fa-minus"></i></button>
     <!-- Row 5 -->
     <button class="display" value="1">1</button>
     <button class="display" value="2">2</button>
     <button class="display" value="3">3</button>
-    <button class="method" value="add">+</button>
+    <button class="method" value="add"><i class="fas fa-plus"></i></button>
     <!-- Row 6 -->
     <button class="display" value="0">0</button>
     <button class="display" value=".">.</button>
-    <button id="js-equal">=</button>
+    <button id="js-equal"><i class="fas fa-equals"></i></button>
   </section>
 
   <script src="logic.js"></script>
