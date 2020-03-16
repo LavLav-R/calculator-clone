@@ -1,15 +1,26 @@
+const clearButton = document.getElementById('js-clearButton');
+const displays = document.querySelectorAll('.display');
 const methods = document.querySelectorAll('.method');
 const equal = document.getElementById('js-equal');
+let input = document.getElementById('js-input');
 
 let numArray = [];
-let input;
+let tempArray = [];
 let currentMethod;
 let answer;
+
+for(const display of displays){
+  display.addEventListener('click', () => {
+    tempArray.push(display.value);
+    input.value = tempArray.join("");
+  });
+};
 
 for(const method of methods){
   method.addEventListener('click', () => {
     storeInput();
     currentMethod = method.value;
+    tempArray = [];
   });
 };
 
@@ -19,6 +30,7 @@ function storeInput(){
   input.value = "";
 };
 
+equal.addEventListener('click', solve);
 function solve(){
   storeInput();
   switch(currentMethod){
@@ -40,4 +52,11 @@ function solve(){
   currentMethod = null;
 };
 
-equal.addEventListener('click', solve);
+clearButton.addEventListener('click', clear);
+function clear(){
+  numArray = [];
+  tempArray = [];
+  currentMethod = null;
+  answer = null;
+  input.value = "";
+};
